@@ -265,6 +265,18 @@ a:hover {
     animation-direction: alternate;
 }
 
+::-webkit-scrollbar {
+    background-color: black;
+    witdth: 6px;
+    height: 6px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: purple;
+    border-radius: 5px;
+}
+
 footer {
     background: rgba(34, 34, 34, 0.6);
     color: #fff;
