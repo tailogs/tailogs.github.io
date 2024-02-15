@@ -27,4 +27,17 @@
     .img-portfolio {
         width: 100%;
     }
+
+    .post {
+        margin: 0 0 0 0;
+        font-size: 36px;
+    }
+    
+    .post p {
+        font-size: 32px;
+    }
+
+    .post time {
+        font-size: 28px;
+    }
 }
