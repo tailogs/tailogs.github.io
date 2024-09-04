@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    flex-wrap: wrap; /* Для адаптации на мобильных устройствах */
+}
+
+.back-link {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #ff4081;
+    transition: background-color 0.3s;
+}
+
+.back-link:hover {
+    background-color: #ff4081;
+}
+
+a {
+    color:rgb(83, 56, 236);
+}
+
+#site-name {
+    color: rgb(236, 56, 191);
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.joke-style, .fact-style {
+    color: rgb(255 105 210);
+    text-align: center;
+    padding: 10px;
+}
+
+#time {
+    background-color: #1e1e1e;
+    text-align: center;
+    padding: 10px 5px;
+    line-height: 1.5;
+    margin: 10px 0px;
+}
+
+#status {
+    background-color: #1e1e1e;
+    padding: 10px 15px;
+    line-height: 1.5;
+    margin: 10px 0px;
+}
+
+.sidebar {
+    flex: 1; /* Боковые колонки занимают равное пространство */
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    margin: 0 10px; /* Отступы между колонками */
+}
+
+.sidebar-content {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    animation: sidebar-animation 5s ease infinite;
+}
+
+@keyframes sidebar-animation {
+    0% { transform: translateY(-5px); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(-5px); }
+}
+
+.sidebar-avatar {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    background-image: url('https://avatars.githubusercontent.com/u/69743960?v=4'); /* URL на вашу GIF-анимацию */
+    background-size: cover;
+    border: 2px solid #ff0057;
+    animation: avatar-animation 3s ease infinite;
+}
+
+@keyframes avatar-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.sidebar-links {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.sidebar-links li {
+    margin-bottom: 5px;
+}
+
+.sidebar-links a {
+    color: #e91e63;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar-links img {
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.sidebar-links a:hover {
+    color: #ff4081;
+}
+
+.main-content {
+    flex: 2; /* Центральная колонка занимает больше пространства */
+    padding: 20px;
+    text-align: left; /* Текст в центральной колонке выравнивается влево */
+    background-color: #2a2a2a;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: #d3517d;
+    transition: color 0.3s;
+}
+
+h2 {
+    color: #e91e63;
+    transition: color 0.3s;
+}
+
+h1:hover, h2:hover {
+    color: #ff4081;
+}
+
+p {
+    line-height: 1.6;
+}
+
+hr {
+    border: 1px solid #444;
+    margin: 20px 0;
+}
+
+.post {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #2a2a2a;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    overflow: hidden; /* Обеспечивает, что псевдоэлемент не вылезает за границы поста */
+    transition: box-shadow 0.3s;
+    transform-style: preserve-3d; /* Для 3D эффекта */
+}
+
+.post:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.post::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 45%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 55%);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    transform: translateX(-100%) translateY(-100%);
+}
+
+.post:hover::before {
+    opacity: 1;
+    transform: translateX(100%) translateY(100%);
+}
+
+/* Интерактивный наклон поста */
+.post {
+    perspective: 1000px; /* Убедитесь, что у поста есть перспектива */
+    transform-style: preserve-3d; /* Необходимо для 3D трансформаций */
+    transition: transform 0.2s ease; /* Плавный переход */
+}
+
+/* При наведении курсора */
+.post:hover {
+    transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(1.02);
+}
+
+
+.post:hover::before {
+    opacity: 1;
+    transform: translateX(100%) translateY(100%);
+}
+
+.date-time {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 10px; /* Отступ между датой и контентом поста */
+    display: block; /* Обеспечиваем, что дата занимает всю ширину */
+    transition: color 0.3s; /* Плавный переход цвета */
+    font-family: 'Press Start 2P', cursive; /* Ретро шрифт для даты */
+    text-align: right; /* Выравнивание даты по правому краю */
+}
+
+.date-time:hover {
+    color: #ff4081; /* Изменение цвета при наведении */
+    text-shadow: 1px 1px 2px #000; /* Добавление тени для эффекта */
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Уменьшаем внутренний отступ */
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 0; /* Убираем отступы у контейнера */
+    }
+
+    .back-link {
+        padding: 15px 0; /* Увеличиваем отступы для лучшего восприятия на мобильных */
+        border: 2px solid #ff4081;
+    }
+
+    #site-name {
+        font-size: 20px; /* Уменьшаем размер шрифта для мобильных устройств */
+        padding: 15px; /* Увеличиваем отступы для лучшего восприятия */
+    }
+
+    .sidebar {
+        flex: 1; /* Уменьшаем ширину боковых колонок на мобильных */
+        margin: 0; /* Убираем горизонтальные отступы */
+        padding: 10px; /* Уменьшаем отступы внутри боковых колонок */
+    }
+
+    .sidebar-content {
+        padding: 8px; /* Уменьшаем внутренние отступы для компактности */
+    }
+
+    .sidebar-avatar {
+        width: 80px; /* Уменьшаем размер аватара */
+        height: 80px; /* Уменьшаем высоту аватара */
+        border: 2px solid #ff0057; /* Сохраняем стиль обводки */
+    }
+
+    .sidebar-links img {
+        width: 100%; /* Адаптируем изображения под ширину экрана */
+    }
+
+    .main-content {
+        flex: 1; /* Центральная колонка занимает больше пространства */
+        padding: 15px; /* Уменьшаем отступы для мобильных устройств */
+    }
+
+    .post {
+        margin-bottom: 15px; /* Уменьшаем отступы между постами */
+        padding: 10px; /* Уменьшаем внутренние отступы для компактности */
+    }
+
+    .date-time {
+        font-size: 12px; /* Уменьшаем размер шрифта для мобильных устройств */
+        margin-bottom: 8px; /* Уменьшаем отступы для компактности */
+    }
+
+    /* Обновление псевдоэлементов и анимаций для мобильных */
+    .post::before {
+        transform: translateX(-100%) translateY(-100%);
+    }
+
+    .post:hover {
+        transform: rotateX(0deg) rotateY(0deg) scale(1); /* Убираем 3D наклон на мобильных */
+    }
+
+    .sidebar-content {
+        animation: none; /* Отключаем анимацию для мобильных устройств */
+    }
+}
