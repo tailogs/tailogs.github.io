@@ -84,7 +84,7 @@ void convert_markup(wchar_t *line, FILE *output) {
             break; // Выходим из цикла
         }
     }
-}
+}	
 
 void generate_html() {
     const char *input_file = "chan.txt";
@@ -217,9 +217,20 @@ void generate_html() {
 
     // Добавляем ссылки (предполагается, что ссылки будут изображены GIF-ами)
     fputws(L"<ul class=\"sidebar-links\">\n", output);
-    fputws(L"<li><a href=\"https://example.com\"><img src=\"https://media.giphy.com/media/26gsspf5bCdsD1NT2/giphy.gif\" alt=\"Link 1\"></a></li>\n", output);
-    fputws(L"<li><a href=\"https://example.com\"><img src=\"https://media.giphy.com/media/dUJQL4ABSYzkm/giphy.gif\" alt=\"Link 2\"></a></li>\n", output);
-    fputws(L"<li><a href=\"https://example.com\"><img src=\"https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXc2cTBhZDF0aHFwNWFvb2x6MmtxMmUzcmJ1cnFoeHJ4dXBkNHhucyZlcD12MV9pbnRlbnNldHJpbmVhbF9naWZfYnlfaWQmY3Q9Zw/118lTJFyUJYyze/200.webp\" alt=\"Link 3\"></a></li>\n", output);
+
+    // Добавляем GIF-анимации
+    const wchar_t *gifs[] = {
+        L"<li><div class=\"gif-wrapper\"><a href=\"https://example.com\"><img src=\"https://media.giphy.com/media/26gsspf5bCdsD1NT2/giphy.gif\" alt=\"Link 1\"></a></div></li>\n",
+        L"<li><div class=\"gif-wrapper\"><a href=\"https://example.com\"><img src=\"https://media.giphy.com/media/dUJQL4ABSYzkm/giphy.gif\" alt=\"Link 2\"></a></div></li>\n",
+        L"<li><div class=\"gif-wrapper\"><a href=\"https://example.com\"><img src=\"https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXc2cTBhZDF0aHFwNWFvb2x6MmtxMmUzcmJ1cnFoeHJ4dXBkNHhucyZlcD12MV9pbnRlbnNldHJpbmVhbF9naWZfYnlfaWQmY3Q9Zw/118lTJFyUJYyze/200.webp\" alt=\"Link 3\"></a></div></li>\n"
+    };
+
+	size_t gifs_count = sizeof(gifs) / sizeof(gifs[0]);
+
+    for (size_t i = 0; i < gifs_count; i++) {
+        fputws(gifs[i], output);
+    }
+
     fputws(L"</ul>\n", output);
 
     fputws(L"</div>\n", output);

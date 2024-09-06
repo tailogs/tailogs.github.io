@@ -8,6 +8,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
+    background-image: url("https://images.wallpaperscraft.ru/image/single/siluet_stena_ekrany_1067807_1920x1200.jpg");
 }
 
 .container {
@@ -73,6 +74,8 @@ a {
     background-color: #2a2a2a;
     border-radius: 5px;
     margin: 0 10px; /* Отступы между колонками */
+    opacity: 0.95;
+	border: 4px inset #cb86c0;
 }
 
 .sidebar-content {
@@ -108,12 +111,12 @@ a {
 
 .sidebar-links {
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
     margin-bottom: 10px;
 }
 
 .sidebar-links li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .sidebar-links a {
@@ -139,6 +142,8 @@ a {
     text-align: left; /* Текст в центральной колонке выравнивается влево */
     background-color: #2a2a2a;
     border-radius: 5px;
+    opacity: 0.95;
+	border: 4px inset #cb86c0;
 }
 
 h1 {
@@ -211,7 +216,6 @@ hr {
     transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(1.02);
 }
 
-
 .post:hover::before {
     opacity: 1;
     transform: translateX(100%) translateY(100%);
@@ -227,9 +231,23 @@ hr {
     text-align: right; /* Выравнивание даты по правому краю */
 }
 
-.date-time:hover {
-    color: #ff4081; /* Изменение цвета при наведении */
+.post:hover .date-time {
+    color: #ff4081; /* Изменение цвета при наведении на пост */
     text-shadow: 1px 1px 2px #000; /* Добавление тени для эффекта */
+}
+
+.gif-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border: 3px solid #d269ff; /* Цвет и ширина обводки */
+    border-radius: 15px; /* Округлые углы, если нужны */
+}
+
+.gif-wrapper img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Мобильная адаптация */

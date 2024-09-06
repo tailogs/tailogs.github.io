@@ -76,3 +76,7 @@ coverage/
 *.swo
 *.swp
 *.pid
+
+# My file
+
+config.py
