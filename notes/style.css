@@ -1,0 +1,198 @@
+/* Общие стили */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: #e0e0e0;
+    background-color: #1e1e1e;
+    background-image: url('https://www.transparenttextures.com/patterns/black-paper.png');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер для всего контента */
+.container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row; /* По умолчанию для больших экранов */
+}
+
+/* Левая боковая колонка */
+.sidebar {
+    width: 250px;
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-right: 2px solid #444;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-avatar {
+    background: url('https://www.fillmurray.com/150/150') no-repeat center center;
+    background-size: cover;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+#site-name {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar-btn-back {
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+a {
+    color: rgb(180, 180, 180);
+    text-decoration: none; /* Убирает подчеркивание у всех ссылок */
+}
+
+.sidebar-btn-back:hover {
+    background-color: #b9b9b9;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+a .sidebar-btn-back:hover {
+    color: rgb(37, 37, 37);
+    text-decoration: none; /* Убирает подчеркивание у всех ссылок */
+}
+
+/* Стили для посещенной ссылки */
+a {
+    color: rgb(180, 180, 180);
+    text-decoration: none; /* Подчеркнутый текст для посещенной ссылки */
+}
+
+/* Стили для ссылки при нажатии (активной) */
+a {
+    color: rgb(180, 180, 180);
+    text-decoration: none; /* Подчеркнутый текст при нажатии */
+}
+
+/* Центральная колонка */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    color: #f0f0f0;
+    font-size: 2em;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Стили для постов */
+.post {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.date-time {
+    font-style: italic;
+    color: #aaa;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Кнопка "Назад" */
+.back-link {
+    display: inline-block;
+    color: #f0f0f0;
+    background-color: #333;
+    border: 2px solid #444;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Переход для фона и границы */
+}
+
+.back-link:hover {
+    background-color: #444;
+    border-color: #555;
+}
+
+/* Стили для списка ссылок в боковой панели */
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-links a {
+    display: block;
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.sidebar-links a:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+.gif-wrapper {
+    margin-bottom: 10px;
+}
+
+.gif-wrapper img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Смена направления на колонку для мобильных устройств */
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #444; /* Замена правого бордера на нижний для мобильных устройств */
+    }
+
+    .main-content {
+        padding: 10px; /* Уменьшение отступов для мобильных устройств */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Уменьшение размера шрифта заголовка */
+    }
+
+    .sidebar-avatar {
+        height: 100px; /* Уменьшение размера аватара */
+        width: 100px;
+    }
+
+    .sidebar-btn-back {
+        padding: 8px;
+    }
+
+    .back-link {
+        padding: 8px 10px;
+    }
+}
