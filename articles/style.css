@@ -38,6 +38,7 @@ li {
 /* Стили для контейнера */
 .container {
     /* max-width: 900px; */
+    margin-top: 50px;
     margin: 0 auto;
     padding: 20px;
     background-color: rgba(30, 30, 30, 0.8); /* Полупрозрачный фон */
