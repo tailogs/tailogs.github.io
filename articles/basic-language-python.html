@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы языка Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Полное руководство по основам языка Python</h1>
+        <p>Это подробное руководство по основам языка Python, включающее примеры программ, которые демонстрируют различные
+            концепции программирования на Python.</p>
+        <div class="back-container">
+            <a href="links.html" class="back-link">Назад</a>
+        </div>
+
+        <h2>Первая программа на Python</h2>
+        <p>Каждая программа на Python начинается с простого кода:</p>
+        <pre><code class="language-python">
+print("Hello, World!")
+        </code></pre>
+
+        <h2>Типы данных</h2>
+        <p>Основные типы данных в Python:</p>
+        <ul>
+            <li><code>int</code> — целые числа</li>
+            <li><code>float</code> — числа с плавающей запятой</li>
+            <li><code>str</code> — строки</li>
+            <li><code>bool</code> — логические значения</li>
+        </ul>
+
+        <h2>Арифметические операции</h2>
+        <p>Пример использования арифметических операций в Python:</p>
+        <pre><code class="language-python">
+a = 10
+b = 20
+sum = a + b
+diff = b - a
+prod = a * b
+div = b / a
+mod = b % a
+
+print(f"Sum: {sum}")
+print(f"Difference: {diff}")
+print(f"Product: {prod}")
+print(f"Division: {div}")
+print(f"Modulus: {mod}")
+        </code></pre>
+
+        <h2>Ввод/Вывод</h2>
+        <p>Ввод и вывод данных с использованием <code>input()</code> и <code>print()</code>:</p>
+        <pre><code class="language-python">
+num = int(input("Enter an integer: "))
+print(f"You entered: {num}")
+        </code></pre>
+
+        <h2>Условные операторы</h2>
+        <p>Пример использования оператора <code>if-else</code>:</p>
+        <pre><code class="language-python">
+num = int(input("Enter an integer: "))
+
+if num > 0:
+    print("The number is positive.")
+elif num < 0:
+    print("The number is negative.")
+else:
+    print("The number is zero.")
+        </code></pre>
+
+        <h2>Циклы</h2>
+        <p>Пример цикла <code>while</code>:</p>
+        <pre><code class="language-python">
+i = 0
+while i < 5:
+    print(f"i = {i}")
+    i += 1
+        </code></pre>
+
+        <h2>Массивы</h2>
+        <p>Пример работы с массивами (списками) в Python:</p>
+        <pre><code class="language-python">
+arr = [1, 2, 3, 4, 5]
+for i, item in enumerate(arr):
+    print(f"arr[{i}] = {item}")
+        </code></pre>
+
+        <h2>Функции</h2>
+        <p>Пример создания и использования функции:</p>
+        <pre><code class="language-python">
+def greet():
+    print("Hello from the function!")
+
+greet()
+        </code></pre>
+
+        <h2>Классы и объекты</h2>
+        <p>Пример создания и использования классов:</p>
+        <pre><code class="language-python">
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def display(self):
+        print(f"Width: {self.width}, Height: {self.height}, Area: {self.area()}")
+
+rect = Rectangle(5.0, 3.0)
+rect.display()
+        </code></pre>
+
+        <h2>Наследование</h2>
+        <p>Пример использования наследования в Python:</p>
+        <pre><code class="language-python">
+class Animal:
+    def speak(self):
+        print("Animal makes a sound.")
+
+class Dog(Animal):
+    def speak(self):
+        print("Dog barks.")
+
+animal = Dog()
+animal.speak()
+        </code></pre>
+
+        <h2>Работа с указателями</h2>
+        <p>В Python указатели не используются напрямую, но можно работать с объектами и ссылками:</p>
+        <pre><code class="language-python">
+num = 10
+ptr = num
+
+print(f"Value of num: {num}")
+print(f"Value via reference: {ptr}")
+
+num = 20
+print(f"New value of num: {num}")
+        </code></pre>
+
+        <h2>Динамическое выделение памяти</h2>
+        <p>В Python управление памятью происходит автоматически с помощью сборщика мусора:</p>
+        <pre><code class="language-python">
+# Python управляет памятью автоматически
+arr = [1, 2, 3, 4, 5]
+print(arr)
+        </code></pre>
+
+        <h2>Работа с файлами</h2>
+        <p>Пример работы с файлами в Python:</p>
+        <pre><code class="language-python">
+# Запись в файл
+with open("example.txt", "w") as file:
+    file.write("Hello, file!\n")
+
+# Чтение из файла
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+        </code></pre>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
+</body>
+
+</html>

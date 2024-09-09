@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы языка Kotlin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Полное руководство по основам языка Kotlin</h1>
+        <p>Это подробное руководство по основам языка Kotlin, включающее примеры программ, которые демонстрируют различные
+            концепции программирования на Kotlin.</p>
+        <div class="back-container">
+            <a href="links.html" class="back-link">Назад</a>
+        </div>
+
+        <h2>Первая программа на Kotlin</h2>
+        <p>Каждая программа на Kotlin начинается с простого кода:</p>
+        <pre><code class="language-kotlin">
+fun main() {
+    println("Hello, World!")
+}
+        </code></pre>
+
+        <h2>Типы данных</h2>
+        <p>Основные типы данных в Kotlin:</p>
+        <ul>
+            <li><code>Int</code> — целые числа</li>
+            <li><code>Float</code> — числа с плавающей запятой</li>
+            <li><code>Double</code> — числа с двойной точностью</li>
+            <li><code>Char</code> — одиночные символы</li>
+            <li><code>Boolean</code> — логические значения</li>
+            <li><code>String</code> — строки</li>
+        </ul>
+
+        <h2>Арифметические операции</h2>
+        <p>Пример использования арифметических операций в Kotlin:</p>
+        <pre><code class="language-kotlin">
+fun main() {
+    val a = 10
+    val b = 20
+    val sum = a + b
+    val diff = b - a
+    val prod = a * b
+    val div = b / a
+    val mod = b % a
+
+    println("Sum: $sum")
+    println("Difference: $diff")
+    println("Product: $prod")
+    println("Division: $div")
+    println("Modulus: $mod")
+}
+        </code></pre>
+
+        <h2>Ввод/Вывод</h2>
+        <p>Ввод и вывод данных в Kotlin:</p>
+        <pre><code class="language-kotlin">
+fun main() {
+    print("Enter an integer: ")
+    val num = readLine()!!.toInt()
+    println("You entered: $num")
+}
+        </code></pre>
+
+        <h2>Условные операторы</h2>
+        <p>Пример использования оператора <code>if-else</code>:</p>
+        <pre><code class="language-kotlin">
+fun main() {
+    print("Enter an integer: ")
+    val num = readLine()!!.toInt()
+
+    if (num > 0) {
+        println("The number is positive.")
+    } else if (num < 0) {
+        println("The number is negative.")
+    } else {
+        println("The number is zero.")
+    }
+}
+        </code></pre>
+
+        <h2>Циклы</h2>
+        <p>Пример цикла <code>while</code>:</p>
+        <pre><code class="language-kotlin">
+fun main() {
+    var i = 0
+    while (i < 5) {
+        println("i = $i")
+        i++
+    }
+}
+        </code></pre>
+
+        <h2>Массивы</h2>
+        <p>Пример работы с массивами:</p>
+        <pre><code class="language-kotlin">
+fun main() {
+    val arr = intArrayOf(1, 2, 3, 4, 5)
+    for (i in arr.indices) {
+        println("arr[$i] = ${arr[i]}")
+    }
+}
+        </code></pre>
+
+        <h2>Функции</h2>
+        <p>Пример создания и использования функции:</p>
+        <pre><code class="language-kotlin">
+fun greet() {
+    println("Hello from the function!")
+}
+
+fun main() {
+    greet()
+}
+        </code></pre>
+
+        <h2>Классы и объекты</h2>
+        <p>Пример создания и использования классов:</p>
+        <pre><code class="language-kotlin">
+class Rectangle(val width: Double, val height: Double) {
+    fun area(): Double {
+        return width * height
+    }
+
+    fun display() {
+        println("Width: $width, Height: $height, Area: ${area()}")
+    }
+}
+
+fun main() {
+    val rect = Rectangle(5.0, 3.0)
+    rect.display()
+}
+        </code></pre>
+
+        <h2>Наследование</h2>
+        <p>Пример использования наследования в Kotlin:</p>
+        <pre><code class="language-kotlin">
+open class Animal {
+    open fun speak() {
+        println("Animal makes a sound.")
+    }
+}
+
+class Dog : Animal() {
+    override fun speak() {
+        println("Dog barks.")
+    }
+}
+
+fun main() {
+    val animal: Animal = Dog()
+    animal.speak()
+}
+        </code></pre>
+
+        <h2>Работа с указателями</h2>
+        <p>В Kotlin нет указателей, работа происходит с ссылками на объекты:</p>
+        <pre><code class="language-kotlin">
+fun main() {
+    var num = 10
+    var ptr = num
+
+    println("Value of num: $num")
+    println("Value via reference: $ptr")
+
+    num = 20
+    println("New value of num: $num")
+}
+        </code></pre>
+
+        <h2>Динамическое выделение памяти</h2>
+        <p>В Kotlin управление памятью происходит автоматически с помощью сборщика мусора:</p>
+        <pre><code class="language-kotlin">
+fun main() {
+    val arr = intArrayOf(1, 2, 3, 4, 5)
+    println(arr.joinToString(", "))
+}
+        </code></pre>
+
+        <h2>Работа с файлами</h2>
+        <p>Пример работы с файлами в Kotlin:</p>
+        <pre><code class="language-kotlin">
+import java.io.File
+
+fun main() {
+    // Запись в файл
+    File("example.txt").writeText("Hello, file!\n")
+
+    // Чтение из файла
+    val content = File("example.txt").readText()
+    println(content)
+}
+        </code></pre>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-kotlin.min.js"></script>
+</body>
+
+</html>

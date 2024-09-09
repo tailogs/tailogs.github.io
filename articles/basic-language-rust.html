@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы языка Rust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Полное руководство по основам языка Rust</h1>
+        <p>Это подробное руководство по основам языка Rust, включающее примеры программ, которые демонстрируют различные
+            концепции программирования на Rust.</p>
+        <div class="back-container">
+            <a href="links.html" class="back-link">Назад</a>
+        </div>
+
+        <h2>Первая программа на Rust</h2>
+        <p>Каждая программа на Rust начинается с функции <code>main</code>:</p>
+        <pre><code class="language-rust">
+fn main() {
+    println!("Hello, World!");
+}
+        </code></pre>
+
+        <h2>Типы данных</h2>
+        <p>Основные типы данных в Rust:</p>
+        <ul>
+            <li><code>i32</code> — целые числа</li>
+            <li><code>f32</code> — числа с плавающей запятой</li>
+            <li><code>f64</code> — числа с двойной точностью</li>
+            <li><code>char</code> — одиночные символы</li>
+        </ul>
+
+        <h2>Арифметические операции</h2>
+        <p>Пример использования арифметических операций в Rust:</p>
+        <pre><code class="language-rust">
+fn main() {
+    let a = 10;
+    let b = 20;
+    let sum = a + b;
+    let diff = b - a;
+    let prod = a * b;
+    let div = b / a;
+    let mod_ = b % a;
+
+    println!("Sum: {}", sum);
+    println!("Difference: {}", diff);
+    println!("Product: {}", prod);
+    println!("Division: {}", div);
+    println!("Modulus: {}", mod_);
+}
+        </code></pre>
+
+        <h2>Ввод/Вывод</h2>
+        <p>Ввод и вывод данных с использованием <code>std::io::stdin</code> и <code>println!</code>:</p>
+        <pre><code class="language-rust">
+use std::io;
+
+fn main() {
+    let mut input = String::new();
+    println!("Enter an integer: ");
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let num: i32 = input.trim().parse().expect("Please type a number");
+    println!("You entered: {}", num);
+}
+        </code></pre>
+
+        <h2>Условные операторы</h2>
+        <p>Пример использования оператора <code>if-else</code>:</p>
+        <pre><code class="language-rust">
+use std::io;
+
+fn main() {
+    let mut input = String::new();
+    println!("Enter an integer: ");
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let num: i32 = input.trim().parse().expect("Please type a number");
+
+    if num > 0 {
+        println!("The number is positive.");
+    } else if num < 0 {
+        println!("The number is negative.");
+    } else {
+        println!("The number is zero.");
+    }
+}
+        </code></pre>
+
+        <h2>Циклы</h2>
+        <p>Пример цикла <code>while</code>:</p>
+        <pre><code class="language-rust">
+fn main() {
+    let mut i = 0;
+
+    while i < 5 {
+        println!("i = {}", i);
+        i += 1;
+    }
+}
+        </code></pre>
+
+        <h2>Массивы</h2>
+        <p>Пример работы с массивами:</p>
+        <pre><code class="language-rust">
+fn main() {
+    let arr = [1, 2, 3, 4, 5];
+
+    for (i, &value) in arr.iter().enumerate() {
+        println!("arr[{}] = {}", i, value);
+    }
+}
+        </code></pre>
+
+        <h2>Функции</h2>
+        <p>Пример создания и использования функции:</p>
+        <pre><code class="language-rust">
+fn greet() {
+    println!("Hello from the function!");
+}
+
+fn main() {
+    greet();
+}
+        </code></pre>
+
+        <h2>Структуры и методы</h2>
+        <p>Пример создания и использования структур:</p>
+        <pre><code class="language-rust">
+struct Rectangle {
+    width: f64,
+    height: f64,
+}
+
+impl Rectangle {
+    fn area(&self) -> f64 {
+        self.width * self.height
+    }
+
+    fn display(&self) {
+        println!("Width: {}, Height: {}, Area: {}", self.width, self.height, self.area());
+    }
+}
+
+fn main() {
+    let rect = Rectangle { width: 5.0, height: 3.0 };
+    rect.display();
+}
+        </code></pre>
+
+        <h2>Наследование</h2>
+        <p>В Rust нет прямого наследования, но можно использовать трейты для расширения функциональности:</p>
+        <pre><code class="language-rust">
+trait Speak {
+    fn speak(&self);
+}
+
+struct Dog;
+
+impl Speak for Dog {
+    fn speak(&self) {
+        println!("Dog barks.");
+    }
+}
+
+fn main() {
+    let dog = Dog;
+    dog.speak();
+}
+        </code></pre>
+
+        <h2>Работа с указателями</h2>
+        <p>В Rust нет указателей в традиционном смысле, но можно использовать ссылки:</p>
+        <pre><code class="language-rust">
+fn main() {
+    let num = 10;
+    let ref_num = &num;
+
+    println!("Value of num: {}", num);
+    println!("Value via reference: {}", ref_num);
+
+    // ref_num = 20; // Error: cannot assign to immutable reference
+}
+        </code></pre>
+
+        <h2>Динамическое выделение памяти</h2>
+        <p>Пример работы с динамическим выделением памяти с использованием <code>Box</code>:</p>
+        <pre><code class="language-rust">
+fn main() {
+    let num = Box::new(10);
+    println!("Value: {}", num);
+}
+        </code></pre>
+
+        <h2>Работа с коллекциями</h2>
+        <p>Пример работы с коллекциями в Rust:</p>
+        <pre><code class="language-rust">
+fn main() {
+    let list = vec!["Hello", "World"];
+
+    for item in &list {
+        println!("{}", item);
+    }
+}
+        </code></pre>
+
+        <h2>Обработка ошибок</h2>
+        <p>Пример обработки ошибок с использованием <code>Result</code>:</p>
+        <pre><code class="language-rust">
+fn divide(a: i32, b: i32) -> Result<i32, String> {
+    if b == 0 {
+        Err("Division by zero".to_string())
+    } else {
+        Ok(a / b)
+    }
+}
+
+fn main() {
+    match divide(10, 2) {
+        Ok(result) => println!("Result: {}", result),
+        Err(e) => println!("Error: {}", e),
+    }
+
+    match divide(10, 0) {
+        Ok(result) => println!("Result: {}", result),
+        Err(e) => println!("Error: {}", e),
+    }
+}
+        </code></pre>
+
+        <h2>Работа с файлами</h2>
+        <p>Пример работы с файлами в Rust:</p>
+        <pre><code class="language-rust">
+use std::fs::File;
+use std::io::{self, Read, Write};
+
+fn main() -> io::Result<()> {
+    let mut file = File::create("example.txt")?;
+    file.write_all(b"Hello, file!")?;
+
+    let mut file = File::open("example.txt")?;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
+    println!("{}", contents);
+
+    Ok(())
+}
+        </code></pre>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-rust.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы языка V</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Полное руководство по основам языка V</h1>
+        <p>Это подробное руководство по основам языка V, включающее примеры программ, которые демонстрируют различные
+            концепции программирования на V.</p>
+        <div class="back-container">
+            <a href="links.html" class="back-link">Назад</a>
+        </div>
+
+        <h2>Первая программа на V</h2>
+        <p>Каждая программа на V начинается с функции <code>main</code>:</p>
+        <pre><code class="language-v">
+fn main() {
+    println('Hello, World!')
+}
+        </code></pre>
+
+        <h2>Типы данных</h2>
+        <p>Основные типы данных в V:</p>
+        <ul>
+            <li><code>int</code> — целые числа</li>
+            <li><code>f32</code> — числа с плавающей запятой</li>
+            <li><code>f64</code> — числа с двойной точностью</li>
+            <li><code>char</code> — одиночные символы</li>
+        </ul>
+
+        <h2>Арифметические операции</h2>
+        <p>Пример использования арифметических операций в V:</p>
+        <pre><code class="language-v">
+fn main() {
+    a := 10
+    b := 20
+    sum := a + b
+    diff := b - a
+    prod := a * b
+    div := b / a
+    mod := b % a
+
+    println('Sum: $sum')
+    println('Difference: $diff')
+    println('Product: $prod')
+    println('Division: $div')
+    println('Modulus: $mod')
+}
+        </code></pre>
+
+        <h2>Ввод/Вывод</h2>
+        <p>Ввод и вывод данных с использованием <code>os.input</code> и <code>println</code>:</p>
+        <pre><code class="language-v">
+import os
+
+fn main() {
+    mut input := os.input('Enter an integer: ')
+    num := input.int()
+    println('You entered: $num')
+}
+        </code></pre>
+
+        <h2>Условные операторы</h2>
+        <p>Пример использования оператора <code>if-else</code>:</p>
+        <pre><code class="language-v">
+import os
+
+fn main() {
+    mut input := os.input('Enter an integer: ')
+    num := input.int()
+
+    if num > 0 {
+        println('The number is positive.')
+    } else if num < 0 {
+        println('The number is negative.')
+    } else {
+        println('The number is zero.')
+    }
+}
+        </code></pre>
+
+        <h2>Циклы</h2>
+        <p>Пример цикла <code>for</code>:</p>
+        <pre><code class="language-v">
+fn main() {
+    mut i := 0
+
+    for i < 5 {
+        println('i = $i')
+        i++
+    }
+}
+        </code></pre>
+
+        <h2>Массивы</h2>
+        <p>Пример работы с массивами:</p>
+        <pre><code class="language-v">
+fn main() {
+    arr := [1, 2, 3, 4, 5]
+
+    for i, value in arr {
+        println('arr[$i] = $value')
+    }
+}
+        </code></pre>
+
+        <h2>Функции</h2>
+        <p>Пример создания и использования функции:</p>
+        <pre><code class="language-v">
+fn greet() {
+    println('Hello from the function!')
+}
+
+fn main() {
+    greet()
+}
+        </code></pre>
+
+        <h2>Структуры и методы</h2>
+        <p>Пример создания и использования структур:</p>
+        <pre><code class="language-v">
+struct Rectangle {
+    width f64
+    height f64
+}
+
+fn (r Rectangle) area() f64 {
+    return r.width * r.height
+}
+
+fn (r Rectangle) display() {
+    println('Width: ${r.width}, Height: ${r.height}, Area: ${r.area()}')
+}
+
+fn main() {
+    rect := Rectangle{width: 5.0, height: 3.0}
+    rect.display()
+}
+        </code></pre>
+
+        <h2>Наследование</h2>
+        <p>В V нет прямого наследования, но можно использовать композицию:</p>
+        <pre><code class="language-v">
+struct Animal {
+    name string
+}
+
+fn (a Animal) speak() {
+    println('$a.name makes a sound.')
+}
+
+struct Dog {
+    Animal
+}
+
+fn (d Dog) speak() {
+    println('${d.name} barks.')
+}
+
+fn main() {
+    dog := Dog{Animal{name: 'Rex'}}
+    dog.speak()
+}
+        </code></pre>
+
+        <h2>Работа с указателями</h2>
+        <p>В V нет указателей в традиционном смысле, но можно использовать ссылки:</p>
+        <pre><code class="language-v">
+fn main() {
+    num := 10
+    ref_num := &num
+
+    println('Value of num: $num')
+    println('Value via reference: $ref_num')
+}
+        </code></pre>
+
+        <h2>Динамическое выделение памяти</h2>
+        <p>Пример работы с динамическим выделением памяти с использованием <code>unsafe</code>:</p>
+        <pre><code class="language-v">
+import unsafe
+
+fn main() {
+    num := unsafe { &int(10) }
+    println('Value: $num')
+}
+        </code></pre>
+
+        <h2>Работа с коллекциями</h2>
+        <p>Пример работы с коллекциями в V:</p>
+        <pre><code class="language-v">
+fn main() {
+    list := ['Hello', 'World']
+
+    for item in list {
+        println(item)
+    }
+}
+        </code></pre>
+
+        <h2>Обработка ошибок</h2>
+        <p>Пример обработки ошибок с использованием <code>?`:</p>
+        <pre><code class="language-v">
+fn divide(a int, b int) ?int {
+    if b == 0 {
+        return error('Division by zero')
+    }
+    return a / b
+}
+
+fn main() {
+    result := divide(10, 2) or {
+        println('Error: $err')
+        return
+    }
+    println('Result: $result')
+
+    result = divide(10, 0) or {
+        println('Error: $err')
+        return
+    }
+    println('Result: $result')
+}
+        </code></pre>
+
+        <h2>Работа с файлами</h2>
+        <p>Пример работы с файлами в V:</p>
+        <pre><code class="language-v">
+import os
+
+fn main() {
+    mut file := os.create('example.txt') or {
+        println('Error creating file: $err')
+        return
+    }
+    file.write('Hello, file!') or {
+        println('Error writing to file: $err')
+        return
+    }
+    file.close() or {
+        println('Error closing file: $err')
+        return
+    }
+
+    mut file := os.open('example.txt') or {
+        println('Error opening file: $err')
+        return
+    }
+    contents := file.read_all() or {
+        println('Error reading from file: $err')
+        return
+    }
+    println(contents)
+}
+        </code></pre>
+
+        <p>Иной источник: </p>
+        <p>Основы: https://koplenov.github.io/vpage/</p>
+        <p>Пакетный менеджер: https://vpm.vlang.io/</p>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-v.min.js"></script>
+</body>
+
+</html>

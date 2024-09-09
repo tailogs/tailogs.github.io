@@ -170,7 +170,7 @@ p {
     }
 
     .sidebar {
-        width: 100%;
+        width: auto;
         border-right: none;
         border-bottom: 2px solid #444; /* Замена правого бордера на нижний для мобильных устройств */
     }

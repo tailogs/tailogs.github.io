@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы языка C#</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Полное руководство по основам языка C#</h1>
+        <p>Это подробное руководство по основам языка C#, включающее примеры программ, которые демонстрируют различные
+            концепции программирования на C#.</p>
+        <div class="back-container">
+            <a href="links.html" class="back-link">Назад</a>
+        </div>
+
+        <h2>Первая программа на C#</h2>
+        <p>Каждая программа на C# начинается с класса с методом <code>Main</code>:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class Program {
+    static void Main() {
+        Console.WriteLine("Hello, World!");
+    }
+}
+        </code></pre>
+
+        <h2>Типы данных</h2>
+        <p>Основные типы данных в C#:</p>
+        <ul>
+            <li><code>int</code> — целые числа</li>
+            <li><code>float</code> — числа с плавающей запятой</li>
+            <li><code>double</code> — числа с двойной точностью</li>
+            <li><code>char</code> — одиночные символы</li>
+        </ul>
+
+        <h2>Арифметические операции</h2>
+        <p>Пример использования арифметических операций в C#:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class ArithmeticOperations {
+    static void Main() {
+        int a = 10, b = 20;
+        int sum = a + b;
+        int diff = b - a;
+        int prod = a * b;
+        int div = b / a;
+        int mod = b % a;
+
+        Console.WriteLine("Sum: " + sum);
+        Console.WriteLine("Difference: " + diff);
+        Console.WriteLine("Product: " + prod);
+        Console.WriteLine("Division: " + div);
+        Console.WriteLine("Modulus: " + mod);
+    }
+}
+        </code></pre>
+
+        <h2>Ввод/Вывод</h2>
+        <p>Ввод и вывод данных с использованием <code>Console.ReadLine</code> и <code>Console.WriteLine</code>:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class InputOutput {
+    static void Main() {
+        Console.Write("Enter an integer: ");
+        int num = int.Parse(Console.ReadLine());
+        Console.WriteLine("You entered: " + num);
+    }
+}
+        </code></pre>
+
+        <h2>Условные операторы</h2>
+        <p>Пример использования оператора <code>if-else</code>:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class ConditionalOperators {
+    static void Main() {
+        Console.Write("Enter an integer: ");
+        int num = int.Parse(Console.ReadLine());
+
+        if (num > 0) {
+            Console.WriteLine("The number is positive.");
+        } else if (num < 0) {
+            Console.WriteLine("The number is negative.");
+        } else {
+            Console.WriteLine("The number is zero.");
+        }
+    }
+}
+        </code></pre>
+
+        <h2>Циклы</h2>
+        <p>Пример цикла <code>while</code>:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class WhileLoop {
+    static void Main() {
+        int i = 0;
+
+        while (i < 5) {
+            Console.WriteLine("i = " + i);
+            i++;
+        }
+    }
+}
+        </code></pre>
+
+        <h2>Массивы</h2>
+        <p>Пример работы с массивами:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class Arrays {
+    static void Main() {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        for (int i = 0; i < arr.Length; i++) {
+            Console.WriteLine("arr[" + i + "] = " + arr[i]);
+        }
+    }
+}
+        </code></pre>
+
+        <h2>Методы</h2>
+        <p>Пример создания и использования метода:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class Methods {
+    static void Greet() {
+        Console.WriteLine("Hello from the method!");
+    }
+
+    static void Main() {
+        Greet();
+    }
+}
+        </code></pre>
+
+        <h2>Классы и объекты</h2>
+        <p>Пример создания и использования классов:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class Rectangle {
+    private double width;
+    private double height;
+
+    public Rectangle(double w, double h) {
+        width = w;
+        height = h;
+    }
+
+    public double Area() {
+        return width * height;
+    }
+
+    public void Display() {
+        Console.WriteLine("Width: " + width + ", Height: " + height + ", Area: " + Area());
+    }
+
+    static void Main() {
+        Rectangle rect = new Rectangle(5.0, 3.0);
+        rect.Display();
+    }
+}
+        </code></pre>
+
+        <h2>Наследование</h2>
+        <p>Пример использования наследования в C#:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class Animal {
+    public virtual void Speak() {
+        Console.WriteLine("Animal makes a sound.");
+    }
+}
+
+class Dog : Animal {
+    public override void Speak() {
+        Console.WriteLine("Dog barks.");
+    }
+
+    static void Main() {
+        Animal animal = new Dog();
+        animal.Speak();
+    }
+}
+        </code></pre>
+
+        <h2>Работа с указателями</h2>
+        <p>В C# нет указателей в традиционном смысле, но можно работать с ссылками на объекты:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class Pointers {
+    static void Main() {
+        int num = 10;
+        int refNum = num;
+
+        Console.WriteLine("Value of num: " + num);
+        Console.WriteLine("Value via reference: " + refNum);
+
+        refNum = 20;
+        Console.WriteLine("New value of num: " + num);
+    }
+}
+        </code></pre>
+
+        <h2>Динамическое выделение памяти</h2>
+        <p>В C# управление памятью осуществляется автоматически сборщиком мусора, но вот пример создания объекта:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class MemoryAllocation {
+    static void Main() {
+        int num = new int();
+        num = 10;
+        Console.WriteLine("Value: " + num);
+    }
+}
+        </code></pre>
+
+        <h2>Работа с коллекциями</h2>
+        <p>Пример работы с коллекциями в C#:</p>
+        <pre><code class="language-csharp">
+using System;
+using System.Collections.Generic;
+
+class Collections {
+    static void Main() {
+        List<string> list = new List<string> { "Hello", "World" };
+
+        foreach (string item in list) {
+            Console.WriteLine(item);
+        }
+    }
+}
+        </code></pre>
+
+        <h2>Обработка исключений</h2>
+        <p>Пример обработки исключений:</p>
+        <pre><code class="language-csharp">
+using System;
+
+class ExceptionHandling {
+    static int Divide(int a, int b) {
+        if (b == 0) {
+            throw new DivideByZeroException("Division by zero");
+        }
+        return a / b;
+    }
+
+    static void Main() {
+        try {
+            Console.WriteLine("Result: " + Divide(10, 2));
+            Console.WriteLine("Result: " + Divide(10, 0));
+        } catch (DivideByZeroException e) {
+            Console.WriteLine("Error: " + e.Message);
+        }
+    }
+}
+        </code></pre>
+
+        <h2>Работа с файлами</h2>
+        <p>Пример работы с файлами в C#:</p>
+        <pre><code class="language-csharp">
+using System;
+using System.IO;
+
+class FileHandling {
+    static void Main() {
+        try {
+            File.WriteAllText("example.txt", "Hello, file!");
+        } catch (IOException e) {
+            Console.WriteLine("Error writing to file: " + e.Message);
+        }
+
+        try {
+            string[] lines = File.ReadAllLines("example.txt");
+            foreach (string line in lines) {
+                Console.WriteLine(line);
+            }
+        } catch (IOException e) {
+            Console.WriteLine("Error reading from file: " + e.Message);
+        }
+    }
+}
+        </code></pre>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-csharp.min.js"></script>
+</body>
+
+</html>

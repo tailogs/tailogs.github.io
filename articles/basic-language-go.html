@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы языка Go</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Полное руководство по основам языка Go</h1>
+        <p>Это подробное руководство по основам языка Go, включающее примеры программ, которые демонстрируют различные
+            концепции программирования на Go.</p>
+        <div class="back-container">
+            <a href="links.html" class="back-link">Назад</a>
+        </div>
+
+        <h2>Первая программа на Go</h2>
+        <p>Каждая программа на Go начинается с функции <code>main</code>:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+        </code></pre>
+
+        <h2>Типы данных</h2>
+        <p>Основные типы данных в Go:</p>
+        <ul>
+            <li><code>int</code> — целые числа</li>
+            <li><code>float32</code> — числа с плавающей запятой одинарной точности</li>
+            <li><code>float64</code> — числа с плавающей запятой двойной точности</li>
+            <li><code>rune</code> — одиночные символы</li>
+        </ul>
+
+        <h2>Арифметические операции</h2>
+        <p>Пример использования арифметических операций в Go:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+func main() {
+    a := 10
+    b := 20
+    sum := a + b
+    diff := b - a
+    prod := a * b
+    div := b / a
+    mod := b % a
+
+    fmt.Println("Sum:", sum)
+    fmt.Println("Difference:", diff)
+    fmt.Println("Product:", prod)
+    fmt.Println("Division:", div)
+    fmt.Println("Modulus:", mod)
+}
+        </code></pre>
+
+        <h2>Ввод/Вывод</h2>
+        <p>Ввод и вывод данных с использованием <code>fmt.Scan</code> и <code>fmt.Println</code>:</p>
+        <pre><code class="language-go">
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    var num int
+    fmt.Print("Enter an integer: ")
+    fmt.Scan(&num)
+    fmt.Println("You entered:", num)
+}
+        </code></pre>
+
+        <h2>Условные операторы</h2>
+        <p>Пример использования оператора <code>if-else</code>:</p>
+        <pre><code class="language-go">
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    var num int
+    fmt.Print("Enter an integer: ")
+    fmt.Scan(&num)
+
+    if num > 0 {
+        fmt.Println("The number is positive.")
+    } else if num < 0 {
+        fmt.Println("The number is negative.")
+    } else {
+        fmt.Println("The number is zero.")
+    }
+}
+        </code></pre>
+
+        <h2>Циклы</h2>
+        <p>Пример цикла <code>for</code>:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+func main() {
+    for i := 0; i < 5; i++ {
+        fmt.Println("i =", i)
+    }
+}
+        </code></pre>
+
+        <h2>Массивы</h2>
+        <p>Пример работы с массивами:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+func main() {
+    arr := [5]int{1, 2, 3, 4, 5}
+
+    for i, value := range arr {
+        fmt.Println("arr[", i, "] =", value)
+    }
+}
+        </code></pre>
+
+        <h2>Функции</h2>
+        <p>Пример создания и использования функции:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+func greet() {
+    fmt.Println("Hello from the function!")
+}
+
+func main() {
+    greet()
+}
+        </code></pre>
+
+        <h2>Структуры</h2>
+        <p>Пример создания и использования структур:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+type Rectangle struct {
+    width  float64
+    height float64
+}
+
+func (r Rectangle) area() float64 {
+    return r.width * r.height
+}
+
+func (r Rectangle) display() {
+    fmt.Printf("Width: %.2f, Height: %.2f, Area: %.2f\n", r.width, r.height, r.area())
+}
+
+func main() {
+    rect := Rectangle{width: 5.0, height: 3.0}
+    rect.display()
+}
+        </code></pre>
+
+        <h2>Наследование</h2>
+        <p>В Go нет классического наследования, но можно использовать композицию:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+type Animal struct {
+    name string
+}
+
+func (a Animal) speak() {
+    fmt.Println(a.name, "makes a sound.")
+}
+
+type Dog struct {
+    Animal
+}
+
+func (d Dog) speak() {
+    fmt.Println(d.name, "barks.")
+}
+
+func main() {
+    dog := Dog{Animal{name: "Rex"}}
+    dog.speak()
+}
+        </code></pre>
+
+        <h2>Указатели</h2>
+        <p>Пример работы с указателями:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+func main() {
+    num := 10
+    ptr := &num
+
+    fmt.Println("Value of num:", num)
+    fmt.Println("Value via pointer:", *ptr)
+}
+        </code></pre>
+
+        <h2>Динамическое выделение памяти</h2>
+        <p>В Go нет прямого управления динамической памятью, используется сборщик мусора:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+func main() {
+    num := new(int)
+    *num = 10
+
+    fmt.Println("Value:", *num)
+}
+        </code></pre>
+
+        <h2>Работа с коллекциями</h2>
+        <p>Пример работы с коллекциями в Go:</p>
+        <pre><code class="language-go">
+package main
+
+import "fmt"
+
+func main() {
+    list := []string{"Hello", "World"}
+
+    for _, item := range list {
+        fmt.Println(item)
+    }
+}
+        </code></pre>
+
+        <h2>Обработка ошибок</h2>
+        <p>Пример обработки ошибок в Go:</p>
+        <pre><code class="language-go">
+package main
+
+import (
+    "errors"
+    "fmt"
+)
+
+func divide(a, b int) (int, error) {
+    if b == 0 {
+        return 0, errors.New("division by zero")
+    }
+    return a / b, nil
+}
+
+func main() {
+    result, err := divide(10, 2)
+    if err != nil {
+        fmt.Println("Error:", err)
+    } else {
+        fmt.Println("Result:", result)
+    }
+
+    result, err = divide(10, 0)
+    if err != nil {
+        fmt.Println("Error:", err)
+    } else {
+        fmt.Println("Result:", result)
+    }
+}
+        </code></pre>
+
+        <h2>Работа с файлами</h2>
+        <p>Пример работы с файлами в Go:</p>
+        <pre><code class="language-go">
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "os"
+)
+
+func main() {
+    err := ioutil.WriteFile("example.txt", []byte("Hello, file!"), 0644)
+    if err != nil {
+        fmt.Println("Error creating file:", err)
+        return
+    }
+
+    data, err := ioutil.ReadFile("example.txt")
+    if err != nil {
+        fmt.Println("Error reading file:", err)
+        return
+    }
+    fmt.Println(string(data))
+}
+        </code></pre>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-go.min.js"></script>
+</body>
+
+</html>

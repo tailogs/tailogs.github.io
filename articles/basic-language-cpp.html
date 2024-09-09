@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы языка C++</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Полное руководство по основам языка C++</h1>
+        <p>Это подробное руководство по основам языка C++, включающее примеры программ, которые демонстрируют различные
+            концепции программирования на C++.</p>
+        <div class="back-container">
+            <a href="links.html" class="back-link">Назад</a>
+        </div>
+
+        <h2>Первая программа на C++</h2>
+        <p>Каждая программа на C++ начинается с функции <code>main()</code>:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}
+        </code></pre>
+
+        <h2>Типы данных</h2>
+        <p>Основные типы данных в C++:</p>
+        <ul>
+            <li><code>int</code> — целые числа</li>
+            <li><code>float</code> — числа с плавающей запятой</li>
+            <li><code>double</code> — числа с двойной точностью</li>
+            <li><code>char</code> — одиночные символы</li>
+        </ul>
+
+        <h2>Арифметические операции</h2>
+        <p>Пример использования арифметических операций в C++:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    int a = 10, b = 20;
+    int sum = a + b;
+    int diff = b - a;
+    int prod = a * b;
+    int div = b / a;
+    int mod = b % a;
+
+    std::cout << "Sum: " << sum << std::endl;
+    std::cout << "Difference: " << diff << std::endl;
+    std::cout << "Product: " << prod << std::endl;
+    std::cout << "Division: " << div << std::endl;
+    std::cout << "Modulus: " << mod << std::endl;
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>Ввод/Вывод</h2>
+        <p>Ввод и вывод данных с использованием <code>cin</code> и <code>cout</code>:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    int num;
+    std::cout << "Enter an integer: ";
+    std::cin >> num;
+    std::cout << "You entered: " << num << std::endl;
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>Условные операторы</h2>
+        <p>Пример использования оператора <code>if-else</code>:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    int num;
+    std::cout << "Enter an integer: ";
+    std::cin >> num;
+
+    if (num > 0) {
+        std::cout << "The number is positive." << std::endl;
+    } else if (num < 0) {
+        std::cout << "The number is negative." << std::endl;
+    } else {
+        std::cout << "The number is zero." << std::endl;
+    }
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>Циклы</h2>
+        <p>Пример цикла <code>while</code>:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    int i = 0;
+
+    while (i < 5) {
+        std::cout << "i = " << i << std::endl;
+        i++;
+    }
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>Массивы</h2>
+        <p>Пример работы с массивами:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+
+    for (int i = 0; i < 5; i++) {
+        std::cout << "arr[" << i << "] = " << arr[i] << std::endl;
+    }
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>Функции</h2>
+        <p>Пример создания и использования функции:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+void greet() {
+    std::cout << "Hello from the function!" << std::endl;
+}
+
+int main() {
+    greet();
+    return 0;
+}
+        </code></pre>
+
+        <h2>Классы и объекты</h2>
+        <p>Пример создания и использования классов:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+class Rectangle {
+public:
+    Rectangle(double w, double h) : width(w), height(h) {}
+
+    double area() const {
+        return width * height;
+    }
+
+    void display() const {
+        std::cout << "Width: " << width << ", Height: " << height << ", Area: " << area() << std::endl;
+    }
+
+private:
+    double width;
+    double height;
+};
+
+int main() {
+    Rectangle rect(5.0, 3.0);
+    rect.display();
+    return 0;
+}
+        </code></pre>
+
+        <h2>Наследование</h2>
+        <p>Пример использования наследования в C++:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+class Animal {
+public:
+    virtual void speak() const {
+        std::cout << "Animal makes a sound." << std::endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void speak() const override {
+        std::cout << "Dog barks." << std::endl;
+    }
+};
+
+int main() {
+    Animal* animal = new Dog();
+    animal->speak();
+    delete animal;
+    return 0;
+}
+        </code></pre>
+
+        <h2>Работа с указателями</h2>
+        <p>Пример работы с указателями:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    int num = 10;
+    int* ptr = &num;
+
+    std::cout << "Value of num: " << num << std::endl;
+    std::cout << "Value via pointer: " << *ptr << std::endl;
+
+    *ptr = 20;
+    std::cout << "New value of num: " << num << std::endl;
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>Динамическое выделение памяти</h2>
+        <p>Пример динамического выделения и освобождения памяти:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int main() {
+    int* ptr = new int; // выделение памяти
+    *ptr = 10;
+
+    std::cout << "Value: " << *ptr << std::endl;
+
+    delete ptr; // освобождение памяти
+    return 0;
+}
+        </code></pre>
+
+        <h2>Умные указатели</h2>
+        <p>Пример использования умных указателей:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+class Resource {
+public:
+    Resource() {
+        std::cout << "Resource acquired" << std::endl;
+    }
+    ~Resource() {
+        std::cout << "Resource destroyed" << std::endl;
+    }
+};
+
+int main() {
+    std::unique_ptr<Resource> ptr1 = std::make_unique<Resource>();
+    std::shared_ptr<Resource> ptr2 = std::make_shared<Resource>();
+
+    // std::unique_ptr и std::shared_ptr автоматически освобождают память
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>Шаблоны функций и классов</h2>
+        <p>Пример шаблонов функций и классов:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+template &lt;typename T&gt;
+T add(T a, T b) {
+    return a + b;
+}
+
+template &lt;typename T&gt;
+class Pair {
+public:
+    Pair(T first, T second) : first(first), second(second) {}
+    T getFirst() const { return first; }
+    T getSecond() const { return second; }
+
+private:
+    T first;
+    T second;
+};
+
+int main() {
+    std::cout << "Add: " << add(10, 20) << std::endl;
+    Pair&lt;int&gt; intPair(1, 2);
+    std::cout << "Pair: (" << intPair.getFirst() << ", " << intPair.getSecond() << ")" << std::endl;
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>Обработка исключений</h2>
+        <p>Пример обработки исключений:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+
+int divide(int a, int b) {
+    if (b == 0) {
+        throw std::runtime_error("Division by zero");
+    }
+    return a / b;
+}
+
+int main() {
+    try {
+        std::cout << "Result: " << divide(10, 2) << std::endl;
+        std::cout << "Result: " << divide(10, 0) << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>Работа с файлами</h2>
+        <p>Пример работы с файлами в C++:</p>
+        <pre><code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+int main() {
+    std::ofstream outFile("example.txt");
+    if (outFile.is_open()) {
+        outFile &lt;&lt; "Hello, file!" &lt;&lt; std::endl;
+        outFile.close();
+    }
+
+    std::ifstream inFile("example.txt");
+    std::string line;
+    if (inFile.is_open()) {
+        while (std::getline(inFile, line)) {
+            std::cout &lt;&lt; line &lt;&lt; std::endl;
+        }
+        inFile.close();
+    }
+
+    return 0;
+}
+        </code></pre>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-cpp.min.js"></script>
+</body>
+
+</html>

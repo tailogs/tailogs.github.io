@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы языка Java</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Полное руководство по основам языка Java</h1>
+        <p>Это подробное руководство по основам языка Java, включающее примеры программ, которые демонстрируют различные
+            концепции программирования на Java.</p>
+        <div class="back-container">
+            <a href="links.html" class="back-link">Назад</a>
+        </div>
+
+        <h2>Первая программа на Java</h2>
+        <p>Каждая программа на Java начинается с класса с методом <code>main</code>:</p>
+        <pre><code class="language-java">
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+        </code></pre>
+
+        <h2>Типы данных</h2>
+        <p>Основные типы данных в Java:</p>
+        <ul>
+            <li><code>int</code> — целые числа</li>
+            <li><code>float</code> — числа с плавающей запятой</li>
+            <li><code>double</code> — числа с двойной точностью</li>
+            <li><code>char</code> — одиночные символы</li>
+        </ul>
+
+        <h2>Арифметические операции</h2>
+        <p>Пример использования арифметических операций в Java:</p>
+        <pre><code class="language-java">
+public class ArithmeticOperations {
+    public static void main(String[] args) {
+        int a = 10, b = 20;
+        int sum = a + b;
+        int diff = b - a;
+        int prod = a * b;
+        int div = b / a;
+        int mod = b % a;
+
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + diff);
+        System.out.println("Product: " + prod);
+        System.out.println("Division: " + div);
+        System.out.println("Modulus: " + mod);
+    }
+}
+        </code></pre>
+
+        <h2>Ввод/Вывод</h2>
+        <p>Ввод и вывод данных с использованием <code>Scanner</code> и <code>System.out</code>:</p>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+public class InputOutput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = scanner.nextInt();
+        System.out.println("You entered: " + num);
+        scanner.close();
+    }
+}
+        </code></pre>
+
+        <h2>Условные операторы</h2>
+        <p>Пример использования оператора <code>if-else</code>:</p>
+        <pre><code class="language-java">
+import java.util.Scanner;
+
+public class ConditionalOperators {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = scanner.nextInt();
+
+        if (num > 0) {
+            System.out.println("The number is positive.");
+        } else if (num < 0) {
+            System.out.println("The number is negative.");
+        } else {
+            System.out.println("The number is zero.");
+        }
+
+        scanner.close();
+    }
+}
+        </code></pre>
+
+        <h2>Циклы</h2>
+        <p>Пример цикла <code>while</code>:</p>
+        <pre><code class="language-java">
+public class WhileLoop {
+    public static void main(String[] args) {
+        int i = 0;
+
+        while (i < 5) {
+            System.out.println("i = " + i);
+            i++;
+        }
+    }
+}
+        </code></pre>
+
+        <h2>Массивы</h2>
+        <p>Пример работы с массивами:</p>
+        <pre><code class="language-java">
+public class Arrays {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("arr[" + i + "] = " + arr[i]);
+        }
+    }
+}
+        </code></pre>
+
+        <h2>Методы</h2>
+        <p>Пример создания и использования метода:</p>
+        <pre><code class="language-java">
+public class Methods {
+    public static void greet() {
+        System.out.println("Hello from the method!");
+    }
+
+    public static void main(String[] args) {
+        greet();
+    }
+}
+        </code></pre>
+
+        <h2>Классы и объекты</h2>
+        <p>Пример создания и использования классов:</p>
+        <pre><code class="language-java">
+public class Rectangle {
+    private double width;
+    private double height;
+
+    public Rectangle(double w, double h) {
+        width = w;
+        height = h;
+    }
+
+    public double area() {
+        return width * height;
+    }
+
+    public void display() {
+        System.out.println("Width: " + width + ", Height: " + height + ", Area: " + area());
+    }
+
+    public static void main(String[] args) {
+        Rectangle rect = new Rectangle(5.0, 3.0);
+        rect.display();
+    }
+}
+        </code></pre>
+
+        <h2>Наследование</h2>
+        <p>Пример использования наследования в Java:</p>
+        <pre><code class="language-java">
+public class Animal {
+    public void speak() {
+        System.out.println("Animal makes a sound.");
+    }
+}
+
+public class Dog extends Animal {
+    @Override
+    public void speak() {
+        System.out.println("Dog barks.");
+    }
+
+    public static void main(String[] args) {
+        Animal animal = new Dog();
+        animal.speak();
+    }
+}
+        </code></pre>
+
+        <h2>Работа с указателями</h2>
+        <p>Java не поддерживает указатели как C++, но аналогом может быть работа с объектами:</p>
+        <pre><code class="language-java">
+public class Pointers {
+    public static void main(String[] args) {
+        Integer num = 10;
+        Integer ref = num;
+
+        System.out.println("Value of num: " + num);
+        System.out.println("Value via reference: " + ref);
+
+        ref = 20;
+        System.out.println("New value of num: " + num);
+    }
+}
+        </code></pre>
+
+        <h2>Динамическое выделение памяти</h2>
+        <p>Java управляет памятью автоматически, но вот пример создания объекта:</p>
+        <pre><code class="language-java">
+public class MemoryAllocation {
+    public static void main(String[] args) {
+        Integer num = new Integer(10);
+        System.out.println("Value: " + num);
+    }
+}
+        </code></pre>
+
+        <h2>Работа с коллекциями</h2>
+        <p>Пример работы с коллекциями в Java:</p>
+        <pre><code class="language-java">
+import java.util.ArrayList;
+
+public class Collections {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Hello");
+        list.add("World");
+
+        for (String item : list) {
+            System.out.println(item);
+        }
+    }
+}
+        </code></pre>
+
+        <h2>Обработка исключений</h2>
+        <p>Пример обработки исключений:</p>
+        <pre><code class="language-java">
+public class ExceptionHandling {
+    public static int divide(int a, int b) throws ArithmeticException {
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        return a / b;
+    }
+
+    public static void main(String[] args) {
+        try {
+            System.out.println("Result: " + divide(10, 2));
+            System.out.println("Result: " + divide(10, 0));
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+        </code></pre>
+
+        <h2>Работа с файлами</h2>
+        <p>Пример работы с файлами в Java:</p>
+        <pre><code class="language-java">
+import java.io.*;
+
+public class FileHandling {
+    public static void main(String[] args) {
+        try (PrintWriter outFile = new PrintWriter(new FileWriter("example.txt"))) {
+            outFile.println("Hello, file!");
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
+        }
+
+        try (BufferedReader inFile = new BufferedReader(new FileReader("example.txt"))) {
+            String line;
+            while ((line = inFile.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading from file: " + e.getMessage());
+        }
+    }
+}
+        </code></pre>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
+</body>
+
+</html>

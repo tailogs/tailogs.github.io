@@ -1,0 +1,185 @@
+/* Общие стили для страницы */
+body {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    background-color: #000000;
+    background-image: url("https://images.wallpaperscraft.ru/image/single/kosmos_zvezdy_bliki_203447_1920x1080.jpg");
+    background-size: cover; /* Убедимся, что фоновое изображение охватывает всю страницу */
+    background-attachment: fixed; /* Фон остаётся фиксированным при прокрутке */
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+h1,
+h2 {
+    color: #00cc99;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+p,
+li {
+    color: #b0b0b0;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Стили для контейнера */
+.container {
+    /* max-width: 900px; */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(30, 30, 30, 0.8); /* Полупрозрачный фон */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px); /* Размытие фона */
+}
+
+/* Стили для кода */
+code {
+    background-color: #000000; /* Новый цвет фона */
+    padding: 4px 6px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #f8f8f2;
+    font-weight: bold;
+}
+
+/* Стили для блоков кода */
+pre {
+    background-color: #2a2a2a; /* Новый цвет фона для блоков кода */
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #f8f8f2;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+pre code {
+    display: block;
+    white-space: pre-wrap;
+}
+
+/* Изменение фона для кода внутри текста и блоков кода */
+:not(pre) > code[class*=language-], 
+pre[class*=language-] {
+    background: #000000; /* Черный фон для кода */
+    color: #f8f8f2; /* Цвет текста */
+    border-radius: 5px; /* Закругление углов */
+    padding: 4px 6px; /* Отступы для встроенного кода */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5); /* Тень для блоков кода */
+}
+
+/* Настройка блоков кода (pre) */
+pre[class*=language-] {
+    padding: 15px; /* Отступы для блоков кода */
+    border-radius: 8px; /* Закругленные углы */
+    overflow-x: auto; /* Горизонтальная прокрутка при необходимости */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Стили для подсветки синтаксиса */
+.language-c .token.keyword {
+    color: #cc99cd;
+    font-weight: bold;
+}
+
+.language-c .token.function {
+    color: #79c0ff;
+}
+
+.language-c .token.string {
+    color: #8dc891;
+}
+
+.language-c .token.comment {
+    color: #5f5a60;
+    font-style: italic;
+}
+
+.language-c .token.number {
+    color: #f08d49;
+}
+
+.language-c .token.operator {
+    color: #f8f8f2;
+}
+
+/* Стили списков и ссылок */
+ul {
+    padding-left: 20px;
+}
+
+a {
+    color: #00cc99;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.back-container {
+    text-align: center; /* Центрируем содержимое контейнера */
+    margin-top: 20px; /* Отступ сверху для отдаления от контента */
+}
+
+.back-link {
+    display: inline-block;
+    background-color: #000000; /* Цвет фона кнопки */
+    color: #ffffff; /* Цвет текста */
+    text-align: center;
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 10px 20px; /* Отступы */
+    font-size: 16px; /* Размер шрифта */
+    border-radius: 5px; /* Закругленные углы */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Тень */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.back-link:hover {
+    color: #000000; /* Цвет текста */
+    background-color: #009977; /* Цвет фона при наведении */
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p,
+    li {
+        font-size: 16px;
+    }
+
+    pre {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
