@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
-    background-image: url("https://images.wallpaperscraft.ru/image/single/siluet_stena_ekrany_1067807_1920x1200.jpg");
+    background: url("https://images.wallpaperscraft.ru/image/single/siluet_stena_ekrany_1067807_1920x1200.jpg") no-repeat center center fixed;
 }
 
 .container {
