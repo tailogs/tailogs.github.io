@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои Проекты</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 0;
+            background: black;
+            background-image: url('https://images.unsplash.com/photo-1726931467680-713bb3f432f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            color: #ffffff;
+        }
+
+        .blur-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        .header {
+            background-color: rgba(51, 51, 51, 0.8);
+            padding: 20px 40px;
+            text-align: center;
+            border-bottom: 2px solid #ffffff;
+            animation: fadeIn 1s;
+        }
+
+        .github-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            background-color: rgba(51, 51, 51, 0.7);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            animation: fadeInUp 1s;
+        }
+
+        .github-link, .back-link, .download-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4078c0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .github-link:hover, .back-link:hover, .download-link:hover {
+            background-color: #3b5998;
+            transform: scale(1.05);
+        }
+
+        .projects {
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 40px;
+        }
+
+        .project-card {
+            display: flex; 
+            background-color: rgba(47, 47, 47, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            margin: 20px;
+            padding: 20px;
+            width: calc(80% - 40px); 
+            animation: slideInUp 0.5s ease-out; 
+        }
+
+        .project-image {
+            max-width: 150px; /* Максимальная ширина изображения */
+            height: auto; /* Высота автоматически подстраивается */
+            border-radius: 5px; 
+            margin-right: 20px; 
+            object-fit: contain; /* Сохраняет пропорции изображения */
+        }
+
+        .project-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1em; 
+        }
+
+        .requirements {
+          margin-top:10px; 
+          font-size:.9em; 
+          color:#ccc; 
+          line-height:.9em; 
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+          from { transform: translateY(-20px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+          from { transform: translateY(20px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+             /* Стили для мобильных устройств */
+             .project-card {
+                width: calc(90% - 40px); 
+                flex-direction: column; 
+                align-items:center; 
+                text-align:center; 
+                padding-top :15%;
+                padding-bottom :15%;
+             }
+             
+             .project-image{
+                max-width :100%; /* Изображение занимает всю ширину карточки */
+                height : auto; /* Высота автоматически подстраивается */
+                margin-bottom :10%; 
+             }
+             
+             .header{
+                border-bottom : none ;
+             }
+             
+             .github-section{
+                border-radius :15%;
+             }
+             
+             .github-link{
+                border-radius :15%;
+             }
+             
+             .projects{
+                padding :10%;
+             }
+             
+             body{
+                padding-top :5%;
+             }
+             
+             h1{
+                font-size :200%;
+             }
+             
+             p{
+                font-size :150%;
+             }
+             
+             h1 a , p a{
+                text-align:center; 
+             }
+         }
+    </style>
+</head>
+<body>
+
+<div class="blur-background"></div>
+
+<header class="header">
+    <h1>Мои Проекты</h1>
+</header>
+
+<div class="github-section">
+    <p>Все проекты находятся на GitHub:</p>
+    <a href="https://github.com/tailogs" class="github-link">Перейти на GitHub</a>
+    <a href="../index.html" class="back-link">Назад на главную</a> <!-- Кнопка назад -->
+</div>
+
+<div class="projects">
+    <!-- Карточки проектов -->
+    <div class="project-card">
+        <img src="minecraft/maps/my/redstone/logo.jpg" alt="Механизм. Дешифратор." class="project-image">
+        <div>
+            <div class="project-title">Механизм. Дешифратор.</div>
+            
+           <div class="project-description">
+               Этот проект представляет собой 4-битный дешифратор, который использует редстоун для управления различными механизмами в Minecraft.
+               Он позволяет декодировать двоичное число и получить соответствующие десятичный и шестнадцатеричный результат.
+           </div>
+
+           <div class="requirements">Требования к проекту:</div>
+           <ul class="requirements">
+               <li>Minecraft версии не ниже X.X</li>
+               <li>Знания основ редстоуна</li>
+           </ul>
+
+           <a href="minecraft/maps/my/redstone/2024-09-30_17-44-12_Редстоун.zip" class="download-link">Скачать проект</a> <!-- Кнопка скачать -->
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="https://via.placeholder.com/150" alt="Проект 2" class="project-image">
+        <div>
+            <div class="project-title">Project 2</div>
+            
+           <div class="project-description">None.</div>
+
+           <div class="requirements">Требования к проекту:</div>
+           <ul class="requirements">
+               <li>Требование X</li>
+               <li>Требование Y</li>
+           </ul>
+
+           <a href="#" class="download-link">Скачать проект</a> <!-- Кнопка скачать -->
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="https://via.placeholder.com/150" alt="Проект 3" class="project-image">
+        <div>
+            <div class="project-title">Project 3</div>
+
+           <div class="project-description">None.</div>
+
+           <div class="requirements">Требования к проекту:</div>
+           <ul class="requirements">
+               <li>Требование A</li>
+               <li>Требование B</li>
+           </ul>
+
+           <a href="#" class="download-link">Скачать проект</a> <!-- Кнопка скачать -->
+       </div>
+   </div>
+
+</div>
+
+</body>
+</html>
