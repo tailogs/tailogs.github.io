@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио Tailogs</title>
+    <link rel="stylesheet" href="styles-cards.css">
+</head>
+<body>
+    <div class="card">
+        <div class="card-inner">
+            <!-- Передняя сторона карточки -->
+            <div class="card-front">
+                <div class="profile-pic">
+                    <img src="res/img/avatar.jpg" alt="Милый кот">
+                </div>
+                <h1>Tailogs</h1>
+                <p class="subtitle">Разработчик</p>
+                <button onclick="flipCard()">Перевернуть</button>
+            </div>
+
+            <!-- Задняя сторона карточки (основная) -->
+            <div class="card-back" id="card-back-main">
+                <h2>Обо мне</h2>
+                <p>Я создаю простые сайты и программы, а также разрабатываю Telegram-ботов и игры.</p>
+                
+                <!-- Навыки -->
+                <div class="skills">
+                    <h3>Навыки:</h3>
+                    <p>
+                        <span class="hashtag">#HTML</span> 
+                        <span class="hashtag">#CSS</span> 
+                        <span class="hashtag">#JavaScript</span> 
+                        <span class="hashtag">#Python</span> 
+                        <span class="hashtag">#C++/C</span> 
+                        <span class="hashtag">#Lua</span> 
+                        <span class="hashtag">#Java</span>
+                        <span class="hashtag">#PHP</span>
+                        <span class="hashtag">#C#</span>
+                        <span class="hashtag">#SQL</span>
+                        <span class="hashtag">#Rust</span>
+                        <span class="hashtag">#Kotlin</span>
+                        <span class="hashtag">#Go</span>
+                    </p>
+                </div>
+
+                <!-- Кнопка для проектов -->
+                <button onclick="showProjects()">Посмотреть проекты</button>
+                
+                
+                <!-- Кнопка для возврата -->
+                <button onclick="flipCard()">Назад</button>
+            </div>
+            
+            <!-- Задняя сторона карточки (проекты) -->
+            <!-- Карточка проектов -->
+			<div class="card-back" id="card-back-projects" style="display: none;">
+				<h2>Проекты</h2>
+				<div class="project-item">
+					<a href="https://github.com/tailogs" class="project-link">
+						<img src="res/svg/github.svg" alt="GitHub" class="icon"> GitHub
+					</a>
+				</div>
+				<div class="project-item">
+					<a href="https://tailogs.itch.io/" class="project-link">
+						<img src="res/svg/itch-io.svg" alt="Itch.io" class="icon"> Itch.io
+					</a>
+				</div>
+				<button id="buttonShowConstacts" onclick="showContacts()">Контакты</button>
+				<button id="buttonShowMain" onclick="showMain()">Назад</button>
+			</div>
+
+             <!-- Задняя сторона карточки (контакты) -->
+            <div class="card-back" id="card-back-contacts" style="display: none;">
+                <h2>Контакты</h2>
+                <p>Мои контактные данные.</p>
+                <p>Email: <a href="ttailogss@gmail.com">ttailogss@gmail.com</a></p>
+                <p>Telegram: <a href="https://t.me/tailogs_feedback_bot" target="_blank">@tailogs_feedback_bot</a></p>
+                
+                <!-- Кнопка для перехода на основной сайт -->
+                <button onclick="window.location.href = 'index.html'">Перейти на основной сайт</button>
+                <button onclick="showProjects()">Назад</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script-cards.js"></script>
+</body>
+</html>
