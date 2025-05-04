@@ -248,6 +248,12 @@ body {
     z-index: 1;
 }
 
+/* === Секция "Игры и увлечения" === */
+.games {
+    margin-top: 2rem;
+    text-align: left;
+}
+
 /* === Адаптивность === */
 @media (max-width: 900px) {
     .monitor {
@@ -353,3 +359,4 @@ body {
         font-size: 0.75rem;
     }
 }
+
