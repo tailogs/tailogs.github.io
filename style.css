@@ -40,6 +40,7 @@ body {
     flex-direction: column; /* Содержимое выстраивается в столбец */
     position: relative;
     animation: screenOn 0.8s ease-out forwards, borderGlow 1s 0.8s infinite alternate;
+    scroll-margin-top: 0;
 }
 
 /* === Засветка и дрожание === */
