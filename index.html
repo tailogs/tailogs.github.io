@@ -1,69 +1,278 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAILOGS // CRT</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailogs — цифровой мастер</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/tailogs/tailogs.github.io/main/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0e0e0e;
+            --text: #e5e5e5;
+            --accent: #ff5c5c;
+            --link: #66ccff;
+            --muted: #888;
+            --card: #1a1a1a;
+            --highlight: #202020;
+            --hover: #2a2a2a;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            overflow-x: hidden;
+            transition: background 0.5s, color 0.5s;
+        }
+        header {
+            text-align: center;
+            padding: 3em 1em 2em;
+            background: #151515;
+            border-bottom: 1px solid #222;
+            animation: fadeIn 1s ease;
+            position: relative;
+        }
+        header h1 {
+            font-size: 3em;
+            color: var(--accent);
+            margin-bottom: 0.3em;
+        }
+        header p {
+            font-size: 1.1em;
+            color: var(--muted);
+            margin-bottom: 0.8em;
+        }
+        #order-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5em 1.3em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 0.5em;
+        }
+        #order-btn:hover {
+            background-color: #ff7676;
+        }
+        main {
+            max-width: 860px;
+            margin: 3em auto;
+            padding: 1em;
+        }
+        section {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 2em;
+            margin-bottom: 2.4em;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+            animation: fadeSlide 0.8s ease;
+        }
+        h2 {
+            color: var(--accent);
+            margin-bottom: 0.8em;
+            font-size: 1.5em;
+        }
+        ul {
+            padding-left: 1.5em;
+        }
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .post {
+            background: var(--highlight);
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            padding: 1.6em;
+            margin-bottom: 2em;
+            transition: background 0.3s;
+            animation: fadeSlide 0.6s ease;
+        }
+        .post:hover {
+            background: var(--hover);
+        }
+        .post time {
+            display: block;
+            color: var(--muted);
+            font-size: 0.85em;
+            margin-bottom: 0.7em;
+        }
+        .social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            margin-top: 1em;
+        }
+        .social a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            background: var(--highlight);
+            padding: 0.6em 1em;
+            border-radius: 6px;
+            font-size: 0.95em;
+            color: var(--text);
+            transition: background 0.3s;
+        }
+        .social a:hover {
+            background: var(--hover);
+        }
+        footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 2em 1em;
+            font-size: 0.9em;
+            border-top: 1px solid #222;
+            margin-top: 3em;
+        }
+        #order-terms {
+            background: var(--highlight);
+            border-radius: 14px;
+            padding: 1.8em 2em;
+            margin-bottom: 2.4em;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+            display: none;
+            animation: fadeSlide 0.8s ease;
+        }
+        #order-terms ul {
+            padding-left: 1.3em;
+            margin-top: 0;
+        }
+        #goto-contacts-btn {
+            background-color: transparent;
+            border: none;
+            color: var(--link);
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 1em;
+            text-decoration: underline;
+            padding: 0;
+            font-family: inherit;
+        }
+        #goto-contacts-btn:hover {
+            color: #aaddff;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-    <!-- === Контейнер Монитора === -->
-    <div class="monitor">
-        <div class="screen">
+    <header>
+        <h1>Tailogs</h1>
+        <p>Цифровая работа, программы, визуал, идеи</p>
+        <button id="order-btn" aria-expanded="false" aria-controls="order-terms">Заказать</button>
+    </header>
 
-            <!-- === Засветка и текстовый блок === -->
-            <div class="crt-glow">
+    <main>
+        <section id="order-terms" aria-hidden="true">
+            <h2>Условия работы</h2>
+            <ul>
+                <li>Работа начинается после предоплаты.</li>
+                <li>Деньги не возвращаются, если работа уже начата.</li>
+                <li>Выполняю только то, что было согласовано заранее — в сообщениях или описании задачи.</li>
+                <li>После завершения возможна одна бесплатная правка. Остальные — за дополнительную оплату.</li>
+                <li>Передаю итог в виде файлов, кода, архивов, ссылок или другого цифрового материала.</li>
+                <li>Работаю с задачами: программирование, визуал, звук, текст, монтаж и другое.</li>
+                <li>Всё, что передаёт заказчик, остаётся конфиденциальным.</li>
+                <li>Итоговая работа может быть размещена в моём портфолио (если не запрещено).</li>
+                <li>Если появляются постоянные изменения, грубость или конфликты — работа прекращается.</li>
+            </ul>
+            <button id="goto-contacts-btn" aria-label="Перейти к контактам">→ Перейти к контактам</button>
+        </section>
 
-                <!-- === Главный заголовок === -->
-                <h1 class="crt-text typing" style="--delay:0s">TAILOGS</h1>
-                <p class="sub typing" style="--delay:0.6s">Программист, ютубер, стример и т.д.</p>
-                <p class="sub typing" style="--delay:1.2s">⇢ Добро пожаловать в нулевую зону моего сознания.</p>
+        <section>
+            <h2>О проекте</h2>
+            <p>Tailogs — это мой никнейм, под которым я создаю программы, утилиты, визуальные идеи и небольшие цифровые продукты. Без лишнего, без рекламы. Всё минималистично и по делу.</p>
+        </section>
 
-                <!-- === Секция О себе === -->
-                <section class="about typing" style="--delay:1.8s">
-                    <h2 class="about-title">> О себе</h2>
-                    <p class="about-text">
-                        Привет, я TAILOGS! Увлекаюсь программированием, перепробовал десятки языков — от Python и JavaScript до Rust и Go. 
-                        Делаю небольшие проекты на GitHub, экспериментирую с разными направлениями. Открыт к сотрудничеству, новым идеям и советам!<br>
-                        Почта: ttailogss@gmail.com<br>
-                        Также я пробую себя в других направлениях, таких как YouTube, стримы и т. д.
-                    </p>
-                </section>
+        <section>
+            <h2>Программы</h2>
+            <p>Некоторые мои инструменты и утилиты можно найти здесь:</p>
+            <ul>
+                <li><a href="https://boosty.to/tailogs" target="_blank">Boosty — платный доступ к Windows-программе Color Picker</a></li>
+                <li><a href="https://github.com/tailogs" target="_blank">GitHub — открытые исходники и архивы</a></li>
+                <li><a href="https://tailogs.itch.io" target="_blank">Itch.io — мои мини-игры</a></li>
+            </ul>
+        </section>
 
-                <!-- === Секция Социальные сети === -->
-                <section class="social-container typing" style="--delay:2.4s">
-                    <a href="https://github.com/tailogs" target="_blank" class="social-label">GitHub</a>
-                    <a href="https://discord.gg/ecYxypdR" target="_blank" class="social-label">Discord</a>
-                    <a href="https://t.me/tailogs_channel" target="_blank" class="social-label">Telegram</a>
-                    <a href="https://www.twitch.tv/tailogs_" target="_blank" class="social-label">Twitch</a>
-                    <a href="https://www.youtube.com/@tailogs5825" target="_blank" class="social-label">YouTube</a>
-                </section>
-
-                <!-- === Секция Игры и увлечения === -->
-                <section class="games typing crt-glow" style="--delay:2.1s">
-                    <h2 class="about-title crt-text">> Игры и увлечения</h2>
-                    <ul class="game-list">
-                        <li>Minecraft — строю, выживаю, играю на серверах.</li>
-                        <li>Terraria — пиксельное приключение с огромным миром.</li>
-                        <li>OSU! — ритм-игра, где каждый клик — это бит.</li>
-                        <li>League of Legends — игра с оригинальными персонажами.</li>
-                        <li>The Sims™ 4 — спокойствие и симуляция жизни.</li>
-                        <li>Mindustry — стратегия + автоматизация.</li>
-                        <li>Stellaris — космическая стратегия.</li>
-                        <li>Mobile Legends: Bang Bang — быстрая MOBA на мобиле.</li>
-                        <li>Free Fire — мобильный батл-рояль.</li>
-                        <li>Roblox — платформа для творчества.</li>
-                    </ul>
-                </section>
+        <section id="contacts-section">
+            <h2>Контакты</h2>
+            <p>Можно написать напрямую или подписаться:</p>
+            <div class="social">
+                <a href="https://t.me/tailogs" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://t.me/tailogs_channel" target="_blank"><i class="fas fa-bullhorn"></i> Блог в Telegram</a>
+                <a href="https://discord.gg/74yZHk66" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+                <a href="mailto:ttailogss@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://www.youtube.com/@tailogs5825" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="https://www.twitch.tv/tailogs_" target="_blank"><i class="fab fa-twitch"></i> Twitch</a>
             </div>
-        </div>
-    </div>
+            <p style="margin-top:1em;font-size:0.9em;color:var(--muted);">Почта: <code>ttailogss@gmail.com</code></p>
+        </section>
+
+        <section>
+            <h2>Поддержать</h2>
+            <p>Если тебе полезно то, что я делаю — можешь поддержать на <a href="https://boosty.to/tailogs" target="_blank">Boosty</a> или просто написать спасибо.</p>
+        </section>
+
+        <section>
+            <h2>Блог</h2>
+            <div class="post">
+                <time>1 июля 2025</time>
+                <h3>Моя первая программа, которую не стыдно показать</h3>
+                <p>Сделал Color Picker на WinAPI с лупой, RGB, HEX и трей-иконкой. Без мусора и лишнего — просто рабочий инструмент. Пока доступен на <a href="https://boosty.to/tailogs" target="_blank">Boosty</a></p>
+            </div>
+
+            <div class="post">
+                <time>1 июля 2025</time>
+                <h3>Почему я не использую WordPress</h3>
+                <p>Мне не нравится избыточность и зависимость от серверов. Сайт на GitHub Pages — бесплатный, лёгкий и полностью под контролем.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© Tailogs — 2025</p>
+    </footer>
+
     <script>
-        window.onload = () => {
-            setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 100); // Задержка в 100ms
-        };
+        const orderBtn = document.getElementById('order-btn');
+        const orderTerms = document.getElementById('order-terms');
+        const gotoContactsBtn = document.getElementById('goto-contacts-btn');
+        const contactsSection = document.getElementById('contacts-section');
+
+        orderBtn.addEventListener('click', () => {
+            if (orderTerms.style.display === 'block') {
+                orderTerms.style.display = 'none';
+                orderTerms.setAttribute('aria-hidden', 'true');
+                orderBtn.setAttribute('aria-expanded', 'false');
+            } else {
+                orderTerms.style.display = 'block';
+                orderTerms.setAttribute('aria-hidden', 'false');
+                orderBtn.setAttribute('aria-expanded', 'true');
+                orderTerms.scrollIntoView({behavior: 'smooth'});
+            }
+        });
+
+        gotoContactsBtn.addEventListener('click', () => {
+            contactsSection.scrollIntoView({behavior: 'smooth'});
+        });
     </script>
 </body>
 </html>
